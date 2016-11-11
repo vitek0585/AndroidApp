@@ -8,6 +8,7 @@ import android.provider.ContactsContract;
 import java.util.ArrayList;
 import java.util.List;
 
+import Extensions.StringExtension;
 import Extractors.Common.ContentExtractorBase;
 
 public class ContactExtractor extends ContentExtractorBase {
@@ -64,7 +65,7 @@ public class ContactExtractor extends ContentExtractorBase {
     {
         if (GetUnNormalizedColumnNames().contains(column))
         {
-            if(IsNullOrWhitespace(value)){
+            if(StringExtension.IsNullOrWhitespace(value)){
                 return Boolean.FALSE.toString();
             }else{
                 return Boolean.TRUE.toString();
@@ -72,23 +73,5 @@ public class ContactExtractor extends ContentExtractorBase {
         }
 
         return value;
-    }
-
-    private boolean IsNullOrWhitespace(String str) {
-
-        if(str==null)
-            return true;
-
-        int length = str.length();
-        if (length > 0) {
-            for (int i = 0; i < length; i++) {
-                if (!Character.isWhitespace(str.charAt(i))) {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        return false;
     }
 }
