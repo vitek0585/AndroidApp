@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">CredoApp</string>
+    <string name="Content_Agree">Agree</string>
+    <string name="Content_Collect">Proceed with credit analysis</string>
+    <string name="Content_CollectStatusFailed">Collection process completed with error. Please, try again to rerun collection</string>
+    <string name="Content_CollectStatusSuccess">Data is successfully verified</string>
+    <string name="Content_CollectStatusUploadFailed">An erorr occured while upload data. Please, verify your network settings and try to perform this action again</string>
+    <string name="Content_ConfirmationMessage">In compliance with the Personal Data Protection Act (“PDPA”), CredoLab Pte. Ltd. (“Company”) seeks your consent to collect and use your personal data (i.e. Name, contact numbers, information and relevant data, mailing and email addresses) for the purpose of obtaining a data driven credit score.
+    The Company respects your privacy and assures that your personal data will be kept securely according to PDPA.
+    I hereby give my acknowledgement and consent to the Company to use my personal data for the aforesaid Purposes and Services.
+    I agree that my consent will remain in place until my withdrawal by officially notifying the Company in writing.</string>
+    <string name="Content_CredoApp">CredoApp</string>
+    <string name="Content_DataCollectionAgreement">CredoApp Software Use Agreement</string>
+    <string name="Content_IncorrectRequestCode">Request Code is invalid, contact lender</string>
+    <string name="Content_PleaseWaitMessagev">This can take some time</string>
+    <string name="Content_RequestCode">Request Code</string>
+    <string name="Content_RequestInfo">Request Code is presented in SMS from Bank. If you didnt receive SMS then ask lender to provide Request Code value</string>
+    <string name="Content_Retry">RETRY</string>
+    <string name="Content_ServiceIsUnavailable">Service is unavailable. Make sure that your network connection is active and try again</string>
+    <string name="Language_cultureEn">en-US</string>
+    <string name="Language_cultureId">id-ID</string>
+    <string name="Language_cultureTg">en-PH</string>
+    <string name="Language_cultureVi">vi-VN</string>
+    <string name="Language_nameEn">English</string>
+    <string name="Language_nameId">Indonesian</string>
+    <string name="Language_nameTg">Tagalog</string>
+    <string name="Language_nameVi">Vietnamese</string>
+    <string name="Language_shortNameEn">ENG</string>
+    <string name="Language_shortNameId">IDN</string>
+    <string name="Language_shortNameTg">TGL</string>
+    <string name="Language_shortNameVi">VIE</string>
+</resources>
