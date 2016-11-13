@@ -4,12 +4,10 @@
     android:id="@+id/activity_collect"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="id.credoapp.mobile.CollectActivity">
-
+    tools:context="id.credoapp.mobile.CollectActivity"
+    tools:background="@android:color/black"
+    android:background="@color/colorBlack">
+    <include layout="@layout/toolbar"></include>
     <Button
         android:text="@string/Content_Collect"
         android:layout_width="match_parent"

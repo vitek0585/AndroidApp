@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.List;
 
 import Dtos.Element;
+import Extensions.Delegate;
 
 
 public abstract class ContentExtractorBase extends ExtractorBase{
@@ -37,21 +38,34 @@ public abstract class ContentExtractorBase extends ExtractorBase{
     {
         Collection<String> columns = GetColumnNames();
         columns.remove(GetMainColumnName());
-
-        Cursor query = ContentResolver.query(dataUri, GetColumnNames().toArray(new String[0]), Conditions, null, null);
-        query.moveToFirst();
         Collection<Element> elements = new ArrayList<Element>();
+
+        final Cursor query = ContentResolver.query(dataUri, GetColumnNames().toArray(new String[0]), Conditions, null, null);
+
+        if(query==null){
+            return elements;
+        }
+
+        query.moveToFirst();
         if (query.getCount() > 0)
         {
             do
             {
                 Element item = new Element(GetMainColumnName(), query.getString(query.getColumnIndex(GetMainColumnName())));
 
-                for (String column : columns)
+                for (final String column : columns)
                 {
                     try{
-                        String value = query.getString(query.getColumnIndex(column));
-                        item.AddChild(NormalizeColumn(column),NormalizeValue(column, value));
+//                        String value = query.getString(query.getColumnIndex(column));
+//                        item.AddChild(NormalizeColumn(column),NormalizeValue(column, value));
+
+                        item.AddChild(NormalizeColumn(column), new Delegate() {
+                            @Override
+                            public String GetResult() {
+                                String value = query.getString(query.getColumnIndex(column));
+                                return NormalizeValue(column, value);
+                            }
+                        });
                     }catch (Exception ex){
                         item.AddError(NormalizeColumn(column),ex);
                     }

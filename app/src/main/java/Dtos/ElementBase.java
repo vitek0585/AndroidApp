@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import Extensions.Delegate;
+
 public abstract class ElementBase {
 
     private Collection<Element> _childElements;
@@ -33,6 +35,16 @@ public abstract class ElementBase {
     {
         AddChildInternal(new Element(name, value));
     }
+
+    public void AddChild(String name, Delegate value)
+    {
+       try {
+           _childElements.add(new Element(name,value.GetResult()));
+       }catch (Exception ex){
+           _childElements.add(new Element(name,ex.getMessage()));
+       }
+    }
+
     public void AddError(String name, Exception ex)
     {
         AddChildInternal(new Element(name, String.format("EXTRACTING ERROR : %s",ex.getMessage())));
