@@ -2,6 +2,7 @@ package id.credoapp.mobile;
 
 import android.app.ActionBar;
 import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -23,24 +24,41 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToCollect(View view){
-        setContentView(R.layout.activity_collect);
+        //setContentView(R.layout.activity_collect);
         Toolbar toolbar = (Toolbar)findViewById(R.id.toolbar);
         if (toolbar != null) {
-            setSupportActionBar(toolbar);
+            FragmentTransaction tx = getFragmentManager().beginTransaction();
+            tx.add(R.id.content, new MainFragment());
+            tx.addToBackStack(null);
+            tx.commit();
+
+//          setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setShowHideAnimationEnabled(true);
-            getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon);
+//            getSupportActionBar().setShowHideAnimationEnabled(true);
+//            getSupportActionBar().setHomeAsUpIndicator(R.drawable.icon);
         }
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem menuItem) {
         switch (menuItem.getItemId()) {
             case android.R.id.home:
-
-                setContentView(R.layout.activity_main);
+                onBackPressed();
         }
 
         return (super.onOptionsItemSelected(menuItem));
+    }
+
+    @Override
+    public void onBackPressed() {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        if (getFragmentManager().getBackStackEntryCount() == 0) {
+            this.finish();
+        } else {
+            getFragmentManager().popBackStack();
+            if (getFragmentManager().getBackStackEntryCount() == 0)
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        }
     }
 }
