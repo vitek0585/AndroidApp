@@ -5,25 +5,60 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorBlack"
     android:orientation="vertical"
-    tools:context="id.credoapp.mobile.MainActivity"
     tools:background="@android:color/black"
-    android:background="@color/colorBlack">
+    tools:context="id.credoapp.mobile.MainActivity">
 
     <include layout="@layout/toolbar"></include>
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/content"
+    >
     <RelativeLayout
-        android:orientation="vertical"
-        android:layout_height="fill_parent"
         android:layout_width="fill_parent"
-        android:id="@+id/content">
-        <Button
-            android:text="@string/Content_Agree"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_common">
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/agree"   >
+                <TextView
+                    android:id="@+id/dataCollectionAgreementTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Content_DataCollectionAgreement"
+                    android:textColor="@color/textColorPrimary"
+                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:textSize="@dimen/font_size_title"
+                    />
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/margin_top_common">
+                <TextView
+                    android:id="@+id/confirmationMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Content_ConfirmationMessage"
+                    android:textColor="@color/textColorPrimary"
+                    android:textAlignment="inherit"
+                    android:textSize="@dimen/font_size_content"/>
+                </ScrollView>
+            </LinearLayout>
+            <Button
+            android:id="@+id/agree"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/agree"
-            android:onClick="goToCollect"
             android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+            android:layout_centerHorizontal="true"
+            android:onClick="goToCollect"
+            android:text="@string/Content_Agree"
+            android:textColor="@color/colorBlack"/>
     </RelativeLayout>
+</FrameLayout>
 </LinearLayout>

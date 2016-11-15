@@ -43,7 +43,7 @@ public abstract class ContentExtractorBase extends ExtractorBase{
         final Cursor query = ContentResolver.query(dataUri, GetColumnNames().toArray(new String[0]), Conditions, null, null);
 
         if(query==null){
-            return elements;
+            return null;
         }
 
         query.moveToFirst();
@@ -56,8 +56,6 @@ public abstract class ContentExtractorBase extends ExtractorBase{
                 for (final String column : columns)
                 {
                     try{
-//                        String value = query.getString(query.getColumnIndex(column));
-//                        item.AddChild(NormalizeColumn(column),NormalizeValue(column, value));
 
                         item.AddChild(NormalizeColumn(column), new Delegate() {
                             @Override

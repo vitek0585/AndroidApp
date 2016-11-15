@@ -23,4 +23,8 @@ public final class StringExtension {
 
         return false;
     }
+
+    public final static String Empty(){
+        return "";
+    }
 }

@@ -39,9 +39,9 @@ public abstract class ElementBase {
     public void AddChild(String name, Delegate value)
     {
        try {
-           _childElements.add(new Element(name,value.GetResult()));
+           AddChildInternal(new Element(name,value.GetResult()));
        }catch (Exception ex){
-           _childElements.add(new Element(name,ex.getMessage()));
+           AddChildInternal(new Element(name,ex.getMessage()));
        }
     }
 

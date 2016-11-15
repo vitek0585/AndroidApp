@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
+    android:background="@color/colorBlack">
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_collect"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    >
+
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_collect"
+            android:labelFor="@+id/rc_input"
+            android:text="@string/Content_RequestCode"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_size_collect"
+            android:textColor="@color/fontColor"
+            android:gravity="center"/>
+
+        <EditText
+            android:id="@+id/rc_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:gravity="center"
+            android:layout_margin="@dimen/margin_top_collect"
+            android:textColor="@color/fontColor"
+            android:textColorLink="@color/colorPrimary"
+            android:textSize="36sp"
+            android:cursorVisible="true"
+            android:background="@drawable/edit_text_border"
+            />
+
+        <TextView
+            android:id="@+id/error_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top_common"
+            android:text="@string/Content_CollectStatusUploadFailed"
+            android:textAlignment="center"
+            android:textSize="@dimen/font_size_error"
+            android:textColor="@color/error"
+            android:gravity="center"/>
+    </LinearLayout>
+    <LinearLayout
+        android:visibility="visible"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/margin_top_common"
+        >
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:labelFor="@+id/request_code_input"
+        android:text="@string/Content_RequestInfo"
+        android:textAlignment="center"
+        android:textSize="@dimen/font_size_collect"
+        android:textColor="@color/fontColor"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/margin_top_common"
+
+        />
+    <Button
+        android:id="@+id/collect_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="Collect"
+        android:text="@string/Content_Collect"
+        android:textColor="@color/colorBlack" />
+    </LinearLayout>
+</TableLayout>
+</ScrollView>

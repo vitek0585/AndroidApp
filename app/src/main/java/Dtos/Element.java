@@ -21,8 +21,17 @@ public class Element extends ElementBase {
         this._value = _value;
     }
 
-    public Element(String name,String value){
+    public Element(String name, String value){
         _name=name;
         _value=value;
+    }
+
+    public Element(String name, Exception ex){
+        _name=name;
+        _value = ex.getMessage();
+    }
+
+    public Element(String name){
+        _name=name;
     }
 }
